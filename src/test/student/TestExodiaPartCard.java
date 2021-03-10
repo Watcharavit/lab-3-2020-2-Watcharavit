@@ -62,6 +62,17 @@ public class TestExodiaPartCard {
 	
 	//Fill Code Here!!!
 	// 1.testEquipItemExodiaCase
-
+	@Test
+	public void testEquipItemExodiaCase () {
+		exodiaChar.switchCharacter(player);
+		assertEquals(25, player.getDefense());
+		exodiaP1.equipItem(player);
+		assertEquals(45, player.getDefense());
+		exodiaP2.equipItem(player);
+		assertEquals(85, player.getDefense());
+		exodiaP3.equipItem(player);
+		assertEquals(135, player.getDefense());
+		
+	}
 
 }

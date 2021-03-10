@@ -32,6 +32,21 @@ public class TestMainCharacter {
 	//Fill Code Here!!!
 	// 1.testSwitchCharacter
 	// 2.testSacrifice
+	@Test
+	public void testSwitchCharacter() {
+		testMainChar.switchCharacter(player);
+		assertEquals(250,player.getMaxLifePoint());
+		assertEquals(100,player.getAttack());
+		assertEquals(80,player.getDefense());
+
+	}
+	
+	@Test
+	public void testSacrifice() {
+		player.setCurrentLifePoint(player.getMaxLifePoint() / 2);
+		testMainChar.sacrifice(player);
+		assertEquals(187, player.getCurrentLifePoint());
+	}
 	
 	@Test
 	public void testLevelUp() {
@@ -44,6 +59,11 @@ public class TestMainCharacter {
 		assertEquals(96, player.getDefense());
 		//Fill Code Here!!!
 		//Add Level 2 case
+		testMainChar.levelUp(player);
+		assertEquals("Test Main Character [level 2]", testMainChar.getName());
+		assertEquals(360, player.getMaxLifePoint());
+		assertEquals(144, player.getAttack());
+		assertEquals(115, player.getDefense());
 		
 	}
 

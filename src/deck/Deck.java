@@ -11,6 +11,10 @@ public class Deck {
 	private int deckSize;
 	private Card[] deckList;
 
+	public Deck() {
+
+	}
+
 	public Deck(String name, Card[] deckList) {
 		this.name = name;
 		this.deckSize = deckList.length;
@@ -19,14 +23,25 @@ public class Deck {
 
 	// You CAN modify the first line
 	public int insertCard(Card card) throws InsertCardFailedException {
-		int count = 0;
-		if (count >= 4)
+		int count = 1;
+		for (int i = 0; i < this.deckSize; i++) {
+			if (card.equals(this.deckList[i])) {
+				count++;
+			}
+		}
+		if (count > 4)
 			throw new InsertCardFailedException("You can only put 4 of the same cards into the deck");
+		else {
+			this.deckList = Arrays.copyOf(this.deckList, this.deckSize + 1);
+			this.deckList[this.deckSize] = card;
+			this.deckSize++;
+			return getDeckSize();
+		}
 		// FILL CODE HERE
 		// You can use Arrays.copyOf(Original Array, New Length) to create new arrays
 		// with bigger size
 		// Must return new deckSize
-		Arrays.copyOf();
+
 	}
 
 	// You CAN modify the first line
@@ -43,6 +58,16 @@ public class Deck {
 		// Once card is removed, other card down the list must rearrange to the empty
 		// slot
 		// Must return card that was removed
+		Card returnCard = this.deckList[slotNumber - 1];
+		Card[] copyArray = Arrays.copyOf(this.deckList, this.deckSize - 1);
+		for (int i = 0; i < copyArray.length; i++) {
+			if (i!=slotNumber-1) {
+				copyArray[i] = this.deckList[i];
+			}
+		}
+		this.deckList = copyArray;
+		return returnCard;
+
 	}
 
 	@Override
@@ -50,8 +75,6 @@ public class Deck {
 		return new StringBuilder().append("{").append(this.getName()).append("}").append("(").append(this.getDeckSize())
 				.append(" deck size)").toString();
 	}
-
-	
 
 	/* GETTERS & SETTERS */
 	public String getName() {
@@ -69,5 +92,5 @@ public class Deck {
 	public void setDeckSize(int deckSize) {
 		this.deckSize = deckSize;
 	}
-	
+
 }

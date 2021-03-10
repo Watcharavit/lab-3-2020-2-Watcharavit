@@ -28,4 +28,25 @@ public abstract class ItemCard extends Card {
 		return getName() + " \t [Item][HP : " + this.lpBonus + " ATK : " + this.attackBonus + " DEF : "
 				+ this.defenseBonus + "]";
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public int getLpBonus() {
+		return lpBonus;
+	}
+
+	public int getAttackBonus() {
+		return attackBonus;
+	}
+
+	public int getDefenseBonus() {
+		return defenseBonus;
+	}
+	
 }

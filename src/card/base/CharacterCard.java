@@ -4,11 +4,11 @@ import player.Player;
 
 //You CAN modify the first line
 public abstract class CharacterCard extends Card {
-	private String name;
-	private String description;
-	private int lifePoint;
-	private int attackPoint;
-	private int defensePoint;
+	protected String name;
+	protected String description;
+	protected int lifePoint;
+	protected int attackPoint;
+	protected int defensePoint;
 
 	// default constructor
 	public CharacterCard() {
@@ -41,4 +41,26 @@ public abstract class CharacterCard extends Card {
 		return getName() + " \t [Char][HP : " + this.lifePoint + " ATK : " + this.attackPoint + " DEF : "
 				+ this.defensePoint + "]";
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public int getLifePoint() {
+		return lifePoint;
+	}
+
+	public int getAttackPoint() {
+		return attackPoint;
+	}
+
+	public int getDefensePoint() {
+		return defensePoint;
+	}
+
+	
 }

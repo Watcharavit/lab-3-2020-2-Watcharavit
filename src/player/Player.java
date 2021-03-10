@@ -133,6 +133,6 @@ public class Player {
 	public void removeAllInventory() {
 		this.inventory = new ItemCard[0];
 	}
-	
+
 	
 }
