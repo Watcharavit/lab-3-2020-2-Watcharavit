@@ -25,7 +25,7 @@ public class Deck {
 	public int insertCard(Card card) throws InsertCardFailedException {
 		int count = 1;
 		for (int i = 0; i < this.deckSize; i++) {
-			if (card.equals(this.deckList[i])) {
+			if (card==this.deckList[i]) {
 				count++;
 			}
 		}
@@ -46,7 +46,7 @@ public class Deck {
 
 	// You CAN modify the first line
 	public Card removeCard(int slotNumber) throws RemoveCardFailedException {
-		if (this.deckList.length <= slotNumber) {
+		if (this.deckSize <= slotNumber||this.deckSize<0) {
 			throw new RemoveCardFailedException("Number you insert exceed deck size");
 		}
 		if (this.deckList[slotNumber] == null) {
@@ -60,12 +60,14 @@ public class Deck {
 		// Must return card that was removed
 		Card returnCard = this.deckList[slotNumber - 1];
 		Card[] copyArray = Arrays.copyOf(this.deckList, this.deckSize - 1);
-		for (int i = 0; i < copyArray.length; i++) {
-			if (i!=slotNumber-1) {
+		for (int i = 0; i < slotNumber-1; i++) {			
 				copyArray[i] = this.deckList[i];
-			}
 		}
+		for (int i = slotNumber; i < this.deckSize-1; i++) {			
+			copyArray[i] = this.deckList[i+1];
+	}
 		this.deckList = copyArray;
+		this.deckSize--;
 		return returnCard;
 
 	}
