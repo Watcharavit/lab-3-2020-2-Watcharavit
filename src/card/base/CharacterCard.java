@@ -4,8 +4,6 @@ import player.Player;
 
 //You CAN modify the first line
 public abstract class CharacterCard extends Card {
-	protected String name;
-	protected String description;
 	protected int lifePoint;
 	protected int attackPoint;
 	protected int defensePoint;
@@ -42,14 +40,6 @@ public abstract class CharacterCard extends Card {
 				+ this.defensePoint + "]";
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
 	public int getLifePoint() {
 		return lifePoint;
 	}
@@ -62,5 +52,4 @@ public abstract class CharacterCard extends Card {
 		return defensePoint;
 	}
 
-	
 }

@@ -4,8 +4,6 @@ import player.Player;
 
 //You CAN modify the first line
 public abstract class ItemCard extends Card {
-	protected String name;
-	protected String description;
 	protected int lpBonus;
 	protected int attackBonus;
 	protected int defenseBonus;
@@ -29,13 +27,6 @@ public abstract class ItemCard extends Card {
 				+ this.defenseBonus + "]";
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
 
 	public int getLpBonus() {
 		return lpBonus;

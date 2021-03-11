@@ -2,8 +2,8 @@ package card.base;
 
 //You CAN modify the first line
 public abstract class Card {
-	private String name;
-	private String description;
+	protected String name;
+	protected String description;
 
 	// default constructor
 	public Card() {
